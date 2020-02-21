@@ -1,0 +1,128 @@
+<span class='popupClose'></span>
+<div class="header-settings-modal">
+  <div class="section">
+    <div class="title">
+      Header Settings
+    </div>
+    <div class="top-settings">
+      <div class="form-row">
+        <div class="form-input">
+          <div>
+            <div class="custom-label">
+              Size
+            </div>
+            <div>
+              <input class="form-check-input form__radio" type="radio" name="exampleRadios" id="exampleRadios1"
+                (change)="onSizeOptionChange(sizeOptions[0].Name)" value="option1">
+              <label class="form-check-label form__label" for="exampleRadios1">
+                <span class="label-value">{{sizeOptions[0].Name}}</span>
+              </label>
+              <input class="form-check-input form__radio" type="radio" name="exampleRadios" id="exampleRadios2"
+                (change)="onSizeOptionChange(sizeOptions[1].Name)" checked value="option2">
+              <label class="form-check-label form__label" for="exampleRadios2" style="border-left: none;">
+                <span class="label-value">{{sizeOptions[1].Name}}</span>
+              </label>
+              <input class="form-check-input form__radio" type="radio" name="exampleRadios" id="exampleRadios3"
+                (change)="onSizeOptionChange(sizeOptions[2].Name)" value="option3">
+              <label class="form-check-label form__label" for="exampleRadios3" style="border-left: none;">
+                <span class="label-value">{{sizeOptions[2].Name}}</span>
+              </label>
+            </div>
+          </div>
+          <div class="divider"></div>
+          <div>
+            <div class="custom-label">
+              Animation
+            </div>
+            <div class="form-group">
+              <select class="form-control" id="exampleFormControlSelect1" [(ngModel)]="model.AnimationTypeID"
+                (change)="onAnimationOptionChange(model.AnimationTypeID)">
+                <option>{{animationsOptions[0].Name}}</option>
+                <option>{{animationsOptions[1].Name}}</option>
+                <option>{{animationsOptions[2].Name}}</option>
+              </select>
+              <select class="form-control second" id="exampleFormControlSelect1" disabled
+                [(ngModel)]="model.AnimationDurationID">
+                <option>{{animationsDurationOptions[0].Name}}</option>
+                <option>{{animationsDurationOptions[1].Name}}</option>
+                <option>{{animationsDurationOptions[2].Name}}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section-divider"></div>
+  </div>
+  <div class="bottom-settings">
+    <div class="form-row">
+      <div class="custom-row">
+        <div class="custom-label">
+          Tiles
+        </div>
+        <div class="custom-label add">
+          <button class="plus-button plus-button--small" (click)="onTileAdd()"></button>
+          <div class="add-title">
+            Add Tile
+          </div>
+        </div>
+      </div>
+      <div class="row-label">
+        <div class="custom-row-label  custom-row-label-left">
+          <div style="margin-left: -6px;">
+            SUBHEADER
+          </div>
+          <div style="margin-right: 25px;">
+            HEADING
+          </div>
+        </div>
+        <div class="custom-row-label space custom-row-label-right">
+          <div>
+            POSITIVE
+          </div>
+          <div>
+            BACKGROUND
+          </div>
+        </div>
+      </div>
+      <div class="row-value" *ngFor="let item of model.HeaderTiles">
+        <div class="lines">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </div>
+        <div class="custom-row-value-label">
+          <div class="input-group">
+            <input type="text" class="custom-form-control" [(ngModel)]="item.SubHeaderTitle">
+          </div>
+        </div>
+        <div class="custom-row-value-label">
+          <div class="input-group mb-2">
+            <input type="text" class="custom-form-control right" [(ngModel)]="item.HeadingTitle"
+              (ngModelChange)="onHeadingTitleChange()">
+          </div>
+        </div>
+        <div class="custom-row-value-label flex">
+          <label class="switch">
+            <input type="checkbox" [(ngModel)]="item.IsPositive">
+            <span class=" slider round"></span>
+          </label>
+          <select class="form-control-image" id="exampleFormControlSelect1" [(ngModel)]="item.BackgroundImageUrl" (change)="onImageChange()">
+            <option>{{images[0].ID}}</option>
+            <option>{{images[1].ID}}</option>
+            <option>{{images[2].ID}}</option>
+            <option>{{images[3].ID}}</option>
+          </select>
+          <div class="dots">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bottom">
+    <button class="btn btn-primary save-button" (click)="onSave()"><span class="btn-save-text">SAVE</span></button>
+  </div>
+</div>

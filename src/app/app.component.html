@@ -1,0 +1,21 @@
+<div class="login-background" [style.background-image]="'url('+imgUrl+')'">
+</div>
+<div class="info-placeholder">
+  <div class="info">
+    <div *ngIf="title?.length > 0" class="line"></div>
+    <div class="info-text">
+      {{title}}
+    </div>
+    <button class="btn btn-primary learn-button"><span class="btn-text">LEARN MORE</span></button>
+  </div>
+</div>
+<div class="box-placeholder">
+  <div class="login-box">
+    <header-settings (onHeadingChange)="onHeadingChange($event)" (onBackgroundImageChange)="onImageChange($event)">
+    </header-settings>
+  </div>
+  <div class="bottom-placeholder">
+    <div class="bottom-line"></div>
+  </div>
+</div>
+<router-outlet></router-outlet>
